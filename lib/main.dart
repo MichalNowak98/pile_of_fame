@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pile_of_fame/core/style/app_theme.dart';
+import 'package:pile_of_fame/features/owned_miniatures/presentation/pages/owned_miniatures_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,10 +13,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Pile of fame',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const SizedBox(),
+      theme: lightThemeData,
+      home: const OwnedMiniaturesScreen(),
     );
   }
 }

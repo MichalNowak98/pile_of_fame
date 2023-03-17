@@ -1,0 +1,20 @@
+{
+  "data": [
+    {
+      "name": "model1",
+      "universe": "universe",
+      "faction": "faction1",
+      "type": "infantry",
+      "quantity": 20,
+      "finishedNumber": 8
+    },
+    {
+      "name": "model2",
+      "universe": "universe",
+      "faction": "faction2",
+      "type": "cavalry",
+      "quantity": 6,
+      "finishedNumber": 0
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+class GetMiniatureInfoListException implements Exception {}
