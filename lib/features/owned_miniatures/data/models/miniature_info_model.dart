@@ -1,23 +1,31 @@
 import 'package:pile_of_fame/features/owned_miniatures/domain/entities/miniature_info.dart';
+import 'package:hive/hive.dart';
 
+@HiveType(typeId: 0)
 class MiniatureInfoModel extends MiniatureInfo {
+  @HiveField(0)
+  @override
+  final String universe;
+
+  @HiveField(1)
   @override
   final String faction;
 
-  @override
-  final int finishedQuantity;
-
+  @HiveField(2)
   @override
   final String name;
 
-  @override
-  final int overallQuantity;
-
+  @HiveField(3)
   @override
   final String type;
 
+  @HiveField(4)
   @override
-  final String universe;
+  final int finishedQuantity;
+
+  @HiveField(5)
+  @override
+  final int overallQuantity;
 
   @override
   List<Object> get props => [
@@ -48,4 +56,8 @@ class MiniatureInfoModel extends MiniatureInfo {
       universe: json['universe'],
     );
   }
+
+  @override
+  // TODO: implement stringify
+  bool? get stringify => throw UnimplementedError();
 }

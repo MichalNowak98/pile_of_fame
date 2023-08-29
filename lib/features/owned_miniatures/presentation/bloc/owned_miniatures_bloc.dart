@@ -1,9 +1,10 @@
-
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive/hive.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:pile_of_fame/core/network/network_info_internet_connection_checker.dart';
 import 'package:pile_of_fame/features/owned_miniatures/data/data_sources/miniature_local_datasource.dart';
 import 'package:pile_of_fame/features/owned_miniatures/data/data_sources/miniature_remote_datasource.dart';
+import 'package:pile_of_fame/features/owned_miniatures/data/models/miniature_info_model.dart';
 import 'package:pile_of_fame/features/owned_miniatures/data/models/params/get_miniature_info_list_params_model.dart';
 import 'package:pile_of_fame/features/owned_miniatures/data/repositories/miniature_repository_impl.dart';
 import 'package:pile_of_fame/features/owned_miniatures/domain/use_cases/get_miniature_info_list.dart';
@@ -30,8 +31,20 @@ class OwnedMiniaturesBloc extends Bloc<OwnedMiniaturesEvent, OwnedMiniaturesStat
     OwnedMiniaturesLoadListEvent event,
     Emitter emit,
   ) async {
+    //var box = Hive.box('miniatures');
+    var box = await Hive.openBox('miniatures');
+    final min = MiniatureInfoModel(
+      faction: "faction",
+      finishedQuantity: 4,
+      name: "name",
+      overallQuantity: 7,
+      type: "type",
+      universe: "universe",
+    );
+    await box.add(min);
+    
     final result = await _getMiniatureInfoList(GetMiniatureInfoListParamsModel());
-    //TODO implement result
+    //TODO implement exception
     result.fold(
       (l) => null,
       (miniatureInfoList) => emit(OwnedMiniaturesState.loaded(miniatureInfoList: miniatureInfoList)),
