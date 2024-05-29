@@ -4,7 +4,9 @@ import 'package:pile_of_fame/core/network/network_info.dart';
 class NetworkInfoInternetConnectionChecker implements NetworkInfo {
   final InternetConnectionChecker connectionChecker;
 
-  NetworkInfoInternetConnectionChecker(this.connectionChecker);
+  NetworkInfoInternetConnectionChecker({
+    required this.connectionChecker,
+  });
 
   @override
   Future<bool> get isConnected async => connectionChecker.hasConnection;

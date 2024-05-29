@@ -15,7 +15,7 @@ void main() {
 
   setUp(() {
     mockMiniatureInfoRepository = MockMiniatureInfoRepository();
-    usecase = GetMiniatureInfoList(mockMiniatureInfoRepository);
+    usecase = GetMiniatureInfoList( miniatureRepository: mockMiniatureInfoRepository,);
   });
 
   final miniatureInfo = MiniatureInfoModel(

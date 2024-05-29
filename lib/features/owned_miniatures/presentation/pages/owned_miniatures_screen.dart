@@ -10,7 +10,7 @@ import 'package:pile_of_fame/features/owned_miniatures/presentation/widgets/owne
 import 'package:flutter_phosphor_icons/flutter_phosphor_icons.dart';
 
 class OwnedMiniaturesScreen extends StatefulWidget {
-  const OwnedMiniaturesScreen({Key? key}) : super(key: key);
+  const OwnedMiniaturesScreen({ Key? key}) : super(key: key);
 
   @override
   State<OwnedMiniaturesScreen> createState() {
@@ -34,44 +34,47 @@ class _OwnedMiniaturesScreenState extends State<OwnedMiniaturesScreen> {
     final theme = Theme.of(context);
     return SafeArea(
       child: Scaffold(
-        backgroundColor: theme.backgroundColor,
-        appBar: AppBar(
-          leading: IconButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            icon: const Icon(
-              PhosphorIcons.arrow_left,
-              size: 30,
-              color: Colors.black,
+          backgroundColor: theme.colorScheme.background,
+          appBar: AppBar(
+            leading: IconButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              icon: const Icon(
+                PhosphorIcons.arrow_left,
+                size: 30,
+                color: Colors.black,
+              ),
             ),
+            title: const Text("Owned miniatures"),
           ),
-          title: const Text("Owned miniatures"),
-        ),
-        body: BlocBuilder<OwnedMiniaturesBloc, OwnedMiniaturesState>(
-          //TODO - move to getit
-          bloc: OwnedMiniaturesBloc()..add(OwnedMiniaturesLoadListEvent()),
-          builder: (context, state) {
-            return state.map(
-              loading: (loadingState) => const LoadingWidget(),
-              loaded: (state) => SingleChildScrollView(
+          body: BlocBuilder<OwnedMiniaturesBloc, OwnedMiniaturesState>(
+              bloc: context.read<OwnedMiniaturesBloc>()..add(const OwnedMiniaturesLoadListEvent()),
+      builder: (context, state) {
+        return state.map(
+          loading: (loadingState) => const LoadingWidget(),
+          loaded: (state) =>
+              SingleChildScrollView(
                 child: Column(
                   children: List.generate(
                     state.miniatureInfoList.data.length,
-                    (index) => Column(
-                      children: [
-                        OwnedMiniatureWidget(miniatureInfo: state.miniatureInfoList.data[index]),
-                        const HorizontalLine(),
-                      ],
-                    ),
+                        (index) =>
+                        Column(
+                          children: [
+                            OwnedMiniatureWidget(
+                                miniatureInfo: state.miniatureInfoList
+                                    .data[index]),
+                            const HorizontalLine(),
+                          ],
+                        ),
                   ),
                 ),
               ),
-              error: (errorState) => const CommonErrorWidget(),
-            );
-          },
-        ),
-      ),
+          error: (errorState) => const CommonErrorWidget(),
+        );
+      },
+    ),)
+    ,
     );
   }
 }

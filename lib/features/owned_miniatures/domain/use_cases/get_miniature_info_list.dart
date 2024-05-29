@@ -8,7 +8,7 @@ import 'package:pile_of_fame/features/owned_miniatures/domain/repositories/minia
 class GetMiniatureInfoList implements UseCase<MiniatureInfoList, GetMiniatureInfoListParams>{
   final MiniatureRepository miniatureRepository;
 
-  GetMiniatureInfoList(this.miniatureRepository);
+  GetMiniatureInfoList({required this.miniatureRepository});
 
   @override
   Future<Either<Failure, MiniatureInfoList>> call(GetMiniatureInfoListParams params) {

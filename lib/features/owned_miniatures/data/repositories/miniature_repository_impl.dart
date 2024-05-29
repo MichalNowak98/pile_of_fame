@@ -22,8 +22,9 @@ class MiniatureRepositoryImpl implements MiniatureRepository {
 
   @override
   Future<Either<Failure, MiniatureInfoList>> getMiniatureInfoList(
-      GetMiniatureInfoListParams params,) async {
-    if(await networkInfo.isConnected) {
+    GetMiniatureInfoListParams params,
+  ) async {
+    if (await networkInfo.isConnected) {
       try {
         final result = await miniatureRemoteDatasource.getMiniatureInfoList(params);
         return Right(result);

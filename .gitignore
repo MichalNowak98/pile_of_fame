@@ -32,6 +32,9 @@ migrate_working_dir/
 .pub/
 /build/
 
+# Freezed
+*.g.*
+
 # Symbolication related
 app.*.symbols
 

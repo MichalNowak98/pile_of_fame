@@ -1,8 +1,19 @@
 import 'package:pile_of_fame/features/owned_miniatures/domain/entities/miniature_info.dart';
 import 'package:hive/hive.dart';
 
-@HiveType(typeId: 0)
+part 'miniature_info_model.g.dart';
+
+@HiveType(typeId: 1)
 class MiniatureInfoModel extends MiniatureInfo {
+  MiniatureInfoModel({
+    required this.faction,
+    required this.finishedQuantity,
+    required this.name,
+    required this.overallQuantity,
+    required this.type,
+    required this.universe,
+  });
+
   @HiveField(0)
   @override
   final String universe;
@@ -37,21 +48,13 @@ class MiniatureInfoModel extends MiniatureInfo {
         universe,
       ];
 
-  MiniatureInfoModel({
-    required this.faction,
-    required this.finishedQuantity,
-    required this.name,
-    required this.overallQuantity,
-    required this.type,
-    required this.universe,
-  });
 
   factory MiniatureInfoModel.fromJson(Map<String, dynamic> json) {
     return MiniatureInfoModel(
       faction: json['faction'],
-      finishedQuantity: json['finishedNumber'],
+      finishedQuantity: json['finished-number'],
       name: json['name'],
-      overallQuantity: json['quantity'],
+      overallQuantity: json['overall-quantity'],
       type: json['type'],
       universe: json['universe'],
     );
