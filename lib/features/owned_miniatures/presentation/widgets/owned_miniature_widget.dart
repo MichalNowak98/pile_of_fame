@@ -15,34 +15,31 @@ class OwnedMiniatureWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Container(
-      height: 100,
-      child: Row(
-        children: [
-          const HorizontalSpacer(),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  _miniatureInfo.name,
-                  style: theme.textTheme.bodyMedium,
-                ),
-                Text(
-                  "${_miniatureInfo.universe}, ${_miniatureInfo.faction}, ${_miniatureInfo.type}",
-                  style: theme.textTheme.bodySmall,
-                ),
-              ],
-            ),
+    return Row(
+      children: [
+        const HorizontalSpacer(),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                _miniatureInfo.name,
+                style: theme.textTheme.bodyMedium,
+              ),
+              Text(
+                "${_miniatureInfo.universe}, ${_miniatureInfo.faction}, ${_miniatureInfo.type}",
+                style: theme.textTheme.bodySmall,
+              ),
+            ],
           ),
-          PaintedMiniaturesCounterWidget(
-            paintedQuantity: _miniatureInfo.finishedQuantity,
-            overallQuantity: _miniatureInfo.overallQuantity,
-            size: 100,
-          ),
-        ],
-      ),
+        ),
+        PaintedMiniaturesCounterWidget(
+          paintedQuantity: _miniatureInfo.finishedQuantity,
+          overallQuantity: _miniatureInfo.overallQuantity,
+          size: 100,
+        ),
+      ],
     );
   }
 }
