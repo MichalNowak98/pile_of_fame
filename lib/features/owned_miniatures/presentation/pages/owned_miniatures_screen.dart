@@ -9,70 +9,69 @@ import 'package:pile_of_fame/features/owned_miniatures/presentation/bloc/owned_m
 import 'package:pile_of_fame/features/owned_miniatures/presentation/bloc/owned_miniatures_state.dart';
 import 'package:pile_of_fame/features/owned_miniatures/presentation/widgets/owned_miniature_widget.dart';
 
-class OwnedMiniaturesScreen extends StatefulWidget {
-  const OwnedMiniaturesScreen({Key? key}) : super(key: key);
+class OwnedMiniaturesScreen extends StatelessWidget {
+  static const path = '/owned_miniatures';
+  final OwnedMiniaturesBloc? testBloc;
 
-  @override
-  State<OwnedMiniaturesScreen> createState() {
-    return _OwnedMiniaturesScreenState();
-  }
-}
-
-class _OwnedMiniaturesScreenState extends State<OwnedMiniaturesScreen> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
+  const OwnedMiniaturesScreen({
+    this.testBloc,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: theme.colorScheme.background,
-        appBar: AppBar(
-          leading: IconButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            icon: const Icon(
-              PhosphorIcons.arrow_left,
-              size: 30,
-              color: Colors.black,
-            ),
-          ),
-          title: Text(
-            "Owned miniatures",
-            style: theme.textTheme.headlineSmall,
-          ),
-        ),
-        body: BlocBuilder<OwnedMiniaturesBloc, OwnedMiniaturesState>(
-          bloc: context.read<OwnedMiniaturesBloc>()..add(const OwnedMiniaturesLoadListEvent()),
-          builder: (context, state) {
-            return state.map(
-              loading: (loadingState) => const LoadingWidget(),
-              loaded: (state) => SingleChildScrollView(
-                child: Column(
-                  children: List.generate(
-                    state.miniatureInfoList.data.length,
-                    (index) => Column(
-                      children: [
-                        OwnedMiniatureWidget(miniatureInfo: state.miniatureInfoList.data[index]),
-                        const HorizontalLine(),
-                      ],
-                    ),
+    return BlocProvider(
+      create: (context) => OwnedMiniaturesBloc(), // testBloc ?? sl.get<OwnedMiniaturesBloc>(),
+      child: Builder(
+        builder: (context) {
+          return SafeArea(
+            child: Scaffold(
+              backgroundColor: theme.colorScheme.background,
+              appBar: AppBar(
+                leading: IconButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  icon: const Icon(
+                    PhosphorIcons.arrow_left,
+                    size: 30,
+                    color: Colors.black,
                   ),
                 ),
+                title: Text(
+                  "Owned miniatures",
+                  style: theme.textTheme.headlineSmall,
+                ),
               ),
-              error: (errorState) => const CommonErrorWidget(),
-            );
-          },
-        ),
+              body: BlocBuilder<OwnedMiniaturesBloc, OwnedMiniaturesState>(
+                bloc: context.read<OwnedMiniaturesBloc>()
+                  ..add(const OwnedMiniaturesLoadListEvent()),
+                builder: (context, state) {
+                  return state.map(
+                    loading: (loadingState) => const LoadingWidget(),
+                    loaded: (state) =>
+                        SingleChildScrollView(
+                          child: Column(
+                            children: List.generate(
+                              state.miniatureInfoList.data.length,
+                                  (index) =>
+                                  Column(
+                                    children: [
+                                      OwnedMiniatureWidget(miniatureInfo: state.miniatureInfoList.data[index]),
+                                      const HorizontalLine(),
+                                    ],
+                                  ),
+                            ),
+                          ),
+                        ),
+                    error: (errorState) => const CommonErrorWidget(),
+                  );
+                },
+              ),
+            ),
+          );
+        }
       ),
     );
   }

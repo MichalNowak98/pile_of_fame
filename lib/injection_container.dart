@@ -20,8 +20,7 @@ Future<void> init() async {
   );
 
   // Use cases
-  sl.registerLazySingleton(
-      () => GetMiniatureInfoList(miniatureRepository: sl()));
+  sl.registerLazySingleton(() => GetMiniatureInfoList(miniatureRepository: sl()));
 
   // Repository
   sl.registerLazySingleton<MiniatureRepository>(

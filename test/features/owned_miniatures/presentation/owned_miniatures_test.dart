@@ -11,14 +11,17 @@ import 'package:pile_of_fame/features/owned_miniatures/presentation/pages/owned_
 void main() async {
   final MiniatureInfoList miniatureInfoList = await getMiniatureInfoListFixture();
 
-  testGoldens('Owned miniatures Screen test', (tester) async {
-    await tester.pumpOwnedMiniaturesScreen(miniatureInfoList: miniatureInfoList);
-    await multiScreenGolden(
-      tester,
-      'owned_miniatures_screen',
-      autoHeight: true,
-    );
-  });
+  testGoldens(
+    'Owned miniatures Screen test',
+    (tester) async {
+      await tester.pumpOwnedMiniaturesScreen(miniatureInfoList: miniatureInfoList);
+      await multiScreenGolden(
+        tester,
+        'owned_miniatures_screen',
+        autoHeight: true,
+      );
+    },
+  );
 }
 
 extension on WidgetTester {
