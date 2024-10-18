@@ -35,7 +35,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 itemCount: state.categories.length,
                 itemBuilder: (context, index) {
-                  return CardButton(
+                  return HomeCardButton(
                     category: state.categories[index],
                   );
                 },

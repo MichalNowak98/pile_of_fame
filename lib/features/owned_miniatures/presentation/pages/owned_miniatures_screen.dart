@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_phosphor_icons/flutter_phosphor_icons.dart';
 import 'package:pile_of_fame/core/widgets/common_error_widget.dart';
-import 'package:pile_of_fame/core/widgets/horizontal_line.dart';
 import 'package:pile_of_fame/core/widgets/loading_widget.dart';
 import 'package:pile_of_fame/features/owned_miniatures/presentation/bloc/owned_miniatures_bloc.dart';
 import 'package:pile_of_fame/features/owned_miniatures/presentation/bloc/owned_miniatures_event.dart';
@@ -59,7 +58,6 @@ class OwnedMiniaturesScreen extends StatelessWidget {
                                   Column(
                                     children: [
                                       OwnedMiniatureWidget(miniatureInfo: state.miniatureInfoList.data[index]),
-                                      const HorizontalLine(),
                                     ],
                                   ),
                             ),
