@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CommonErrorWidget extends StatelessWidget {
-  const CommonErrorWidget({String? message, Key? key})
+  const CommonErrorWidget({String? message, super.key})
       //TODO - localizations
-      : _message = message ?? "Something went wrong",
-        super(key: key);
+      : _message = message ?? "Something went wrong";
 
   final String _message;
 

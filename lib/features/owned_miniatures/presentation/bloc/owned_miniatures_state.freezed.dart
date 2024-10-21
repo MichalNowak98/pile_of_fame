@@ -12,7 +12,7 @@ part of 'owned_miniatures_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$OwnedMiniaturesState {
@@ -79,31 +79,37 @@ class _$OwnedMiniaturesStateCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of OwnedMiniaturesState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class _$$OwnedMiniaturesLoadingStateCopyWith<$Res> {
-  factory _$$OwnedMiniaturesLoadingStateCopyWith(
-          _$OwnedMiniaturesLoadingState value,
-          $Res Function(_$OwnedMiniaturesLoadingState) then) =
-      __$$OwnedMiniaturesLoadingStateCopyWithImpl<$Res>;
+abstract class _$$OwnedMiniaturesLoadingStateImplCopyWith<$Res> {
+  factory _$$OwnedMiniaturesLoadingStateImplCopyWith(
+          _$OwnedMiniaturesLoadingStateImpl value,
+          $Res Function(_$OwnedMiniaturesLoadingStateImpl) then) =
+      __$$OwnedMiniaturesLoadingStateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$OwnedMiniaturesLoadingStateCopyWithImpl<$Res>
+class __$$OwnedMiniaturesLoadingStateImplCopyWithImpl<$Res>
     extends _$OwnedMiniaturesStateCopyWithImpl<$Res,
-        _$OwnedMiniaturesLoadingState>
-    implements _$$OwnedMiniaturesLoadingStateCopyWith<$Res> {
-  __$$OwnedMiniaturesLoadingStateCopyWithImpl(
-      _$OwnedMiniaturesLoadingState _value,
-      $Res Function(_$OwnedMiniaturesLoadingState) _then)
+        _$OwnedMiniaturesLoadingStateImpl>
+    implements _$$OwnedMiniaturesLoadingStateImplCopyWith<$Res> {
+  __$$OwnedMiniaturesLoadingStateImplCopyWithImpl(
+      _$OwnedMiniaturesLoadingStateImpl _value,
+      $Res Function(_$OwnedMiniaturesLoadingStateImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of OwnedMiniaturesState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$OwnedMiniaturesLoadingState implements OwnedMiniaturesLoadingState {
-  const _$OwnedMiniaturesLoadingState();
+class _$OwnedMiniaturesLoadingStateImpl implements OwnedMiniaturesLoadingState {
+  const _$OwnedMiniaturesLoadingStateImpl();
 
   @override
   String toString() {
@@ -111,10 +117,10 @@ class _$OwnedMiniaturesLoadingState implements OwnedMiniaturesLoadingState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OwnedMiniaturesLoadingState);
+            other is _$OwnedMiniaturesLoadingStateImpl);
   }
 
   @override
@@ -190,35 +196,38 @@ class _$OwnedMiniaturesLoadingState implements OwnedMiniaturesLoadingState {
 }
 
 abstract class OwnedMiniaturesLoadingState implements OwnedMiniaturesState {
-  const factory OwnedMiniaturesLoadingState() = _$OwnedMiniaturesLoadingState;
+  const factory OwnedMiniaturesLoadingState() =
+      _$OwnedMiniaturesLoadingStateImpl;
 }
 
 /// @nodoc
-abstract class _$$OwnedMiniaturesLoadedStateCopyWith<$Res> {
-  factory _$$OwnedMiniaturesLoadedStateCopyWith(
-          _$OwnedMiniaturesLoadedState value,
-          $Res Function(_$OwnedMiniaturesLoadedState) then) =
-      __$$OwnedMiniaturesLoadedStateCopyWithImpl<$Res>;
+abstract class _$$OwnedMiniaturesLoadedStateImplCopyWith<$Res> {
+  factory _$$OwnedMiniaturesLoadedStateImplCopyWith(
+          _$OwnedMiniaturesLoadedStateImpl value,
+          $Res Function(_$OwnedMiniaturesLoadedStateImpl) then) =
+      __$$OwnedMiniaturesLoadedStateImplCopyWithImpl<$Res>;
   @useResult
   $Res call({MiniatureInfoList miniatureInfoList});
 }
 
 /// @nodoc
-class __$$OwnedMiniaturesLoadedStateCopyWithImpl<$Res>
+class __$$OwnedMiniaturesLoadedStateImplCopyWithImpl<$Res>
     extends _$OwnedMiniaturesStateCopyWithImpl<$Res,
-        _$OwnedMiniaturesLoadedState>
-    implements _$$OwnedMiniaturesLoadedStateCopyWith<$Res> {
-  __$$OwnedMiniaturesLoadedStateCopyWithImpl(
-      _$OwnedMiniaturesLoadedState _value,
-      $Res Function(_$OwnedMiniaturesLoadedState) _then)
+        _$OwnedMiniaturesLoadedStateImpl>
+    implements _$$OwnedMiniaturesLoadedStateImplCopyWith<$Res> {
+  __$$OwnedMiniaturesLoadedStateImplCopyWithImpl(
+      _$OwnedMiniaturesLoadedStateImpl _value,
+      $Res Function(_$OwnedMiniaturesLoadedStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of OwnedMiniaturesState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? miniatureInfoList = null,
   }) {
-    return _then(_$OwnedMiniaturesLoadedState(
+    return _then(_$OwnedMiniaturesLoadedStateImpl(
       miniatureInfoList: null == miniatureInfoList
           ? _value.miniatureInfoList
           : miniatureInfoList // ignore: cast_nullable_to_non_nullable
@@ -229,8 +238,8 @@ class __$$OwnedMiniaturesLoadedStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$OwnedMiniaturesLoadedState implements OwnedMiniaturesLoadedState {
-  const _$OwnedMiniaturesLoadedState({required this.miniatureInfoList});
+class _$OwnedMiniaturesLoadedStateImpl implements OwnedMiniaturesLoadedState {
+  const _$OwnedMiniaturesLoadedStateImpl({required this.miniatureInfoList});
 
   @override
   final MiniatureInfoList miniatureInfoList;
@@ -241,10 +250,10 @@ class _$OwnedMiniaturesLoadedState implements OwnedMiniaturesLoadedState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OwnedMiniaturesLoadedState &&
+            other is _$OwnedMiniaturesLoadedStateImpl &&
             (identical(other.miniatureInfoList, miniatureInfoList) ||
                 other.miniatureInfoList == miniatureInfoList));
   }
@@ -252,12 +261,14 @@ class _$OwnedMiniaturesLoadedState implements OwnedMiniaturesLoadedState {
   @override
   int get hashCode => Object.hash(runtimeType, miniatureInfoList);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of OwnedMiniaturesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$OwnedMiniaturesLoadedStateCopyWith<_$OwnedMiniaturesLoadedState>
-      get copyWith => __$$OwnedMiniaturesLoadedStateCopyWithImpl<
-          _$OwnedMiniaturesLoadedState>(this, _$identity);
+  _$$OwnedMiniaturesLoadedStateImplCopyWith<_$OwnedMiniaturesLoadedStateImpl>
+      get copyWith => __$$OwnedMiniaturesLoadedStateImplCopyWithImpl<
+          _$OwnedMiniaturesLoadedStateImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -331,36 +342,43 @@ class _$OwnedMiniaturesLoadedState implements OwnedMiniaturesLoadedState {
 abstract class OwnedMiniaturesLoadedState implements OwnedMiniaturesState {
   const factory OwnedMiniaturesLoadedState(
           {required final MiniatureInfoList miniatureInfoList}) =
-      _$OwnedMiniaturesLoadedState;
+      _$OwnedMiniaturesLoadedStateImpl;
 
   MiniatureInfoList get miniatureInfoList;
-  @JsonKey(ignore: true)
-  _$$OwnedMiniaturesLoadedStateCopyWith<_$OwnedMiniaturesLoadedState>
+
+  /// Create a copy of OwnedMiniaturesState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$OwnedMiniaturesLoadedStateImplCopyWith<_$OwnedMiniaturesLoadedStateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$OwnedMiniaturesErrorStateCopyWith<$Res> {
-  factory _$$OwnedMiniaturesErrorStateCopyWith(
-          _$OwnedMiniaturesErrorState value,
-          $Res Function(_$OwnedMiniaturesErrorState) then) =
-      __$$OwnedMiniaturesErrorStateCopyWithImpl<$Res>;
+abstract class _$$OwnedMiniaturesErrorStateImplCopyWith<$Res> {
+  factory _$$OwnedMiniaturesErrorStateImplCopyWith(
+          _$OwnedMiniaturesErrorStateImpl value,
+          $Res Function(_$OwnedMiniaturesErrorStateImpl) then) =
+      __$$OwnedMiniaturesErrorStateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$OwnedMiniaturesErrorStateCopyWithImpl<$Res>
+class __$$OwnedMiniaturesErrorStateImplCopyWithImpl<$Res>
     extends _$OwnedMiniaturesStateCopyWithImpl<$Res,
-        _$OwnedMiniaturesErrorState>
-    implements _$$OwnedMiniaturesErrorStateCopyWith<$Res> {
-  __$$OwnedMiniaturesErrorStateCopyWithImpl(_$OwnedMiniaturesErrorState _value,
-      $Res Function(_$OwnedMiniaturesErrorState) _then)
+        _$OwnedMiniaturesErrorStateImpl>
+    implements _$$OwnedMiniaturesErrorStateImplCopyWith<$Res> {
+  __$$OwnedMiniaturesErrorStateImplCopyWithImpl(
+      _$OwnedMiniaturesErrorStateImpl _value,
+      $Res Function(_$OwnedMiniaturesErrorStateImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of OwnedMiniaturesState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$OwnedMiniaturesErrorState implements OwnedMiniaturesErrorState {
-  const _$OwnedMiniaturesErrorState();
+class _$OwnedMiniaturesErrorStateImpl implements OwnedMiniaturesErrorState {
+  const _$OwnedMiniaturesErrorStateImpl();
 
   @override
   String toString() {
@@ -368,10 +386,10 @@ class _$OwnedMiniaturesErrorState implements OwnedMiniaturesErrorState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OwnedMiniaturesErrorState);
+            other is _$OwnedMiniaturesErrorStateImpl);
   }
 
   @override
@@ -447,5 +465,5 @@ class _$OwnedMiniaturesErrorState implements OwnedMiniaturesErrorState {
 }
 
 abstract class OwnedMiniaturesErrorState implements OwnedMiniaturesState {
-  const factory OwnedMiniaturesErrorState() = _$OwnedMiniaturesErrorState;
+  const factory OwnedMiniaturesErrorState() = _$OwnedMiniaturesErrorStateImpl;
 }

@@ -5,11 +5,10 @@ class PaintedMiniaturesCounterWidget extends StatelessWidget {
     required int paintedQuantity,
     required int overallQuantity,
     required double size,
-    Key? key,
+    super.key,
   })  : _paintedCount = paintedQuantity,
         _overallCount = overallQuantity,
-        _size = size,
-        super(key: key);
+        _size = size;
   final int _paintedCount;
   final int _overallCount;
   final double _size;

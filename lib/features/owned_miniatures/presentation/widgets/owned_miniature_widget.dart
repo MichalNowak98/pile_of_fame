@@ -7,9 +7,8 @@ import 'package:pile_of_fame/features/owned_miniatures/presentation/widgets/pain
 class OwnedMiniatureWidget extends StatelessWidget {
   const OwnedMiniatureWidget({
     required MiniatureInfo miniatureInfo,
-    Key? key,
-  })  : _miniatureInfo = miniatureInfo,
-        super(key: key);
+    super.key,
+  })  : _miniatureInfo = miniatureInfo;
 
   final MiniatureInfo _miniatureInfo;
 

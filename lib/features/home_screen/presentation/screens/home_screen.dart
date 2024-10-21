@@ -1,11 +1,12 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pile_of_fame/features/home_screen/presentation/bloc/home_bloc.dart';
 import 'package:pile_of_fame/features/home_screen/presentation/widgets/card_button.dart';
 import 'package:pile_of_fame/injection_container.dart';
 
+@RoutePage()
 class HomeScreen extends StatelessWidget {
-  static const path = '/';
   final List<String> items = List<String>.generate(20, (index) => 'Item $index');
   final HomeBloc? testBloc;
 

@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_phosphor_icons/flutter_phosphor_icons.dart';
@@ -8,8 +9,8 @@ import 'package:pile_of_fame/features/owned_miniatures/presentation/bloc/owned_m
 import 'package:pile_of_fame/features/owned_miniatures/presentation/bloc/owned_miniatures_state.dart';
 import 'package:pile_of_fame/features/owned_miniatures/presentation/widgets/owned_miniature_widget.dart';
 
+@RoutePage()
 class OwnedMiniaturesScreen extends StatelessWidget {
-  static const path = '/owned_miniatures';
   final OwnedMiniaturesBloc? testBloc;
 
   const OwnedMiniaturesScreen({
@@ -26,7 +27,7 @@ class OwnedMiniaturesScreen extends StatelessWidget {
         builder: (context) {
           return SafeArea(
             child: Scaffold(
-              backgroundColor: theme.colorScheme.background,
+              backgroundColor: theme.colorScheme.surface,
               appBar: AppBar(
                 leading: IconButton(
                   onPressed: () {

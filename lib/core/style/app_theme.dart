@@ -31,9 +31,7 @@ ThemeData get themeData => ThemeData(
         onSecondary: Colors.white70,
         error: Colors.red,
         onError: Colors.black,
-        onBackground: Colors.black,
-        background: Colors.white,
-        surface: Colors.white70,
+        surface: Colors.white,
         onSurface: Colors.black,
       ),
     );

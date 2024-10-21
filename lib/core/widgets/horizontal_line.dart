@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pile_of_fame/core/widgets/horizontal_spacer.dart';
 
 class HorizontalLine extends StatelessWidget {
-  const HorizontalLine({Key? key}) : super(key: key);
+  const HorizontalLine({super.key});
 
   @override
   Widget build(BuildContext context) {

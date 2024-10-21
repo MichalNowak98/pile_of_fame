@@ -12,7 +12,7 @@ part of 'owned_miniatures_event.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$OwnedMiniaturesEvent {
@@ -67,31 +67,38 @@ class _$OwnedMiniaturesEventCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of OwnedMiniaturesEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class _$$OwnedMiniaturesLoadListEventCopyWith<$Res> {
-  factory _$$OwnedMiniaturesLoadListEventCopyWith(
-          _$OwnedMiniaturesLoadListEvent value,
-          $Res Function(_$OwnedMiniaturesLoadListEvent) then) =
-      __$$OwnedMiniaturesLoadListEventCopyWithImpl<$Res>;
+abstract class _$$OwnedMiniaturesLoadListEventImplCopyWith<$Res> {
+  factory _$$OwnedMiniaturesLoadListEventImplCopyWith(
+          _$OwnedMiniaturesLoadListEventImpl value,
+          $Res Function(_$OwnedMiniaturesLoadListEventImpl) then) =
+      __$$OwnedMiniaturesLoadListEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$OwnedMiniaturesLoadListEventCopyWithImpl<$Res>
+class __$$OwnedMiniaturesLoadListEventImplCopyWithImpl<$Res>
     extends _$OwnedMiniaturesEventCopyWithImpl<$Res,
-        _$OwnedMiniaturesLoadListEvent>
-    implements _$$OwnedMiniaturesLoadListEventCopyWith<$Res> {
-  __$$OwnedMiniaturesLoadListEventCopyWithImpl(
-      _$OwnedMiniaturesLoadListEvent _value,
-      $Res Function(_$OwnedMiniaturesLoadListEvent) _then)
+        _$OwnedMiniaturesLoadListEventImpl>
+    implements _$$OwnedMiniaturesLoadListEventImplCopyWith<$Res> {
+  __$$OwnedMiniaturesLoadListEventImplCopyWithImpl(
+      _$OwnedMiniaturesLoadListEventImpl _value,
+      $Res Function(_$OwnedMiniaturesLoadListEventImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of OwnedMiniaturesEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$OwnedMiniaturesLoadListEvent implements OwnedMiniaturesLoadListEvent {
-  const _$OwnedMiniaturesLoadListEvent();
+class _$OwnedMiniaturesLoadListEventImpl
+    implements OwnedMiniaturesLoadListEvent {
+  const _$OwnedMiniaturesLoadListEventImpl();
 
   @override
   String toString() {
@@ -99,10 +106,10 @@ class _$OwnedMiniaturesLoadListEvent implements OwnedMiniaturesLoadListEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OwnedMiniaturesLoadListEvent);
+            other is _$OwnedMiniaturesLoadListEventImpl);
   }
 
   @override
@@ -166,5 +173,6 @@ class _$OwnedMiniaturesLoadListEvent implements OwnedMiniaturesLoadListEvent {
 }
 
 abstract class OwnedMiniaturesLoadListEvent implements OwnedMiniaturesEvent {
-  const factory OwnedMiniaturesLoadListEvent() = _$OwnedMiniaturesLoadListEvent;
+  const factory OwnedMiniaturesLoadListEvent() =
+      _$OwnedMiniaturesLoadListEventImpl;
 }

@@ -1,5 +1,5 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:pile_of_fame/core/widgets/card_button.dart';
 import 'package:pile_of_fame/features/home_screen/data/models/card_button_category.dart';
 
@@ -15,7 +15,7 @@ class HomeCardButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return CardButton(
       child: InkWell(
-        onTap: () => Get.toNamed(category.nextScreenPath),
+        onTap: () => AutoRouter.of(context).push(category.nextScreenPath),
         child: Center(
           child: Padding(
             padding: const EdgeInsets.all(16.0),
