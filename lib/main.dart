@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pile_of_fame/core/router/app_router.dart';
 import 'package:pile_of_fame/core/style/app_theme.dart';
 
-import 'features/home_screen/injection_container.dart';
+import 'injection_container.dart';
 
 void main() {
   runApp(MyApp());

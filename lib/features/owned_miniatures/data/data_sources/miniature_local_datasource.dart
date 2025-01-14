@@ -8,10 +8,19 @@ abstract class MiniatureLocalDatasource {
 }
 
 class MiniatureLocalDatasourceImpl implements MiniatureLocalDatasource {
+
   @override
   Future<MiniatureInfoList> getMiniatureInfoList(
       GetMiniatureInfoListParams params) {
-    //TODO implement
+
+    return getMiniatureInfoListFixture();
+  }
+}
+
+class MockMiniatureLocalDatasourceImpl implements MiniatureLocalDatasource {
+  @override
+  Future<MiniatureInfoList> getMiniatureInfoList(
+      GetMiniatureInfoListParams params) {
     return getMiniatureInfoListFixture();
   }
 }
