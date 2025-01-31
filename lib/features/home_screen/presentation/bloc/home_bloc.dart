@@ -8,7 +8,7 @@ part 'home_event.dart';
 part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
-  static final _categories = [
+  static final _categories =  [
     CardButtonCategory(name: "Owned Miniatures", nextScreenPath: OwnedMiniaturesRoute()),
     CardButtonCategory(name: "Placeholder 1", nextScreenPath: OwnedMiniaturesRoute()),
     CardButtonCategory(name: "Placeholder 2", nextScreenPath: OwnedMiniaturesRoute()),

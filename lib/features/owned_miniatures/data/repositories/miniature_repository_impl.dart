@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
 import 'package:pile_of_fame/core/error/exceptions.dart';
 import 'package:pile_of_fame/core/error/failure.dart';
 import 'package:pile_of_fame/core/error/failures.dart';
@@ -9,6 +10,7 @@ import 'package:pile_of_fame/features/owned_miniatures/domain/entities/miniature
 import 'package:pile_of_fame/features/owned_miniatures/domain/entities/params/get_miniature_info_list_params.dart';
 import 'package:pile_of_fame/features/owned_miniatures/domain/repositories/miniature_repository.dart';
 
+@Singleton(as: MiniatureRepository)
 class MiniatureRepositoryImpl implements MiniatureRepository {
   final MiniatureLocalDatasource miniatureLocalDatasource;
   final MiniatureRemoteDatasource miniatureRemoteDatasource;

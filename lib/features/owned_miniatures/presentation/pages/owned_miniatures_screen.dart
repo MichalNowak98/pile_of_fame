@@ -22,56 +22,51 @@ class OwnedMiniaturesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return BlocProvider(
-      create: (context) => OwnedMiniaturesBloc(), // testBloc ?? sl.get<OwnedMiniaturesBloc>(),
-      child: Builder(
-        builder: (context) {
-          return SafeArea(
-            child: Scaffold(
-              backgroundColor: theme.colorScheme.surface,
-              appBar: AppBar(
-                leading: IconButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  icon: const Icon(
-                    PhosphorIcons.arrow_left,
-                    size: 30,
-                    color: Colors.black,
-                  ),
-                ),
-                title: Text(
-                  "Owned miniatures",
-                  style: theme.textTheme.headlineSmall,
+      create: (context) => testBloc ?? OwnedMiniaturesBloc(),
+      child: Builder(builder: (context) {
+        return SafeArea(
+          child: Scaffold(
+            backgroundColor: theme.colorScheme.surface,
+            appBar: AppBar(
+              leading: IconButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                icon: const Icon(
+                  PhosphorIcons.arrow_left,
+                  size: 30,
+                  color: Colors.black,
                 ),
               ),
-              body: BlocBuilder<OwnedMiniaturesBloc, OwnedMiniaturesState>(
-                bloc: context.read<OwnedMiniaturesBloc>()
-                  ..add(const OwnedMiniaturesLoadListEvent()),
-                builder: (context, state) {
-                  return state.map(
-                    loading: (loadingState) => const LoadingWidget(),
-                    loaded: (state) =>
-                        SingleChildScrollView(
-                          child: Column(
-                            children: List.generate(
-                              state.miniatureInfoList.data.length,
-                                  (index) =>
-                                  Column(
-                                    children: [
-                                      OwnedMiniatureWidget(miniatureInfo: state.miniatureInfoList.data[index]),
-                                    ],
-                                  ),
-                            ),
-                          ),
-                        ),
-                    error: (errorState) => const CommonErrorWidget(),
-                  );
-                },
+              title: Text(
+                "Owned miniatures",
+                style: theme.textTheme.headlineSmall,
               ),
             ),
-          );
-        }
-      ),
+            body: BlocBuilder<OwnedMiniaturesBloc, OwnedMiniaturesState>(
+              bloc: context.read<OwnedMiniaturesBloc>()..add(const OwnedMiniaturesLoadListEvent()),
+              builder: (context, state) {
+                return state.map(
+                  loading: (loadingState) => const LoadingWidget(),
+                  loaded: (state) => SingleChildScrollView(
+                    child: Column(
+                      children: List.generate(
+                        state.miniatureInfoList.data.length,
+                        (index) => Column(
+                          children: [
+                            OwnedMiniatureWidget(miniatureInfo: state.miniatureInfoList.data[index]),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  error: (errorState) => const CommonErrorWidget(),
+                );
+              },
+            ),
+          ),
+        );
+      }),
     );
   }
 }

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pile_of_fame/features/home_screen/presentation/bloc/home_bloc.dart';
 import 'package:pile_of_fame/features/home_screen/presentation/widgets/card_button.dart';
-import 'package:pile_of_fame/injection_container.dart';
 
 @RoutePage()
 class HomeScreen extends StatelessWidget {
@@ -18,7 +17,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => testBloc ?? sl.get<HomeBloc>(),
+      create: (context) => testBloc ?? HomeBloc(),
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Home'),
@@ -29,10 +28,10 @@ class HomeScreen extends StatelessWidget {
             builder: (context, state) {
               return GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, // Number of columns
-                  crossAxisSpacing: 8.0, // Spacing between columns
-                  mainAxisSpacing: 8.0, // Spacing between rows
-                  childAspectRatio: 3 / 2, // Aspect ratio of the cards
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 8.0,
+                  mainAxisSpacing: 8.0,
+                  childAspectRatio: 3 / 2,
                 ),
                 itemCount: state.categories.length,
                 itemBuilder: (context, index) {

@@ -1,6 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:internet_connection_checker/internet_connection_checker.dart';
-import 'package:pile_of_fame/core/network/network_info_internet_connection_checker.dart';
+import 'package:pile_of_fame/core/network/network_info.dart';
 import 'package:pile_of_fame/features/owned_miniatures/data/data_sources/miniature_local_datasource.dart';
 import 'package:pile_of_fame/features/owned_miniatures/data/data_sources/miniature_remote_datasource.dart';
 import 'package:pile_of_fame/features/owned_miniatures/data/models/params/get_miniature_info_list_params_model.dart';
@@ -8,12 +7,12 @@ import 'package:pile_of_fame/features/owned_miniatures/data/repositories/miniatu
 import 'package:pile_of_fame/features/owned_miniatures/domain/use_cases/get_miniature_info_list.dart';
 import 'package:pile_of_fame/features/owned_miniatures/presentation/bloc/owned_miniatures_event.dart';
 import 'package:pile_of_fame/features/owned_miniatures/presentation/bloc/owned_miniatures_state.dart';
+import 'package:pile_of_fame/injectable.dart';
 
-class OwnedMiniaturesBloc
-    extends Bloc<OwnedMiniaturesEvent, OwnedMiniaturesState> {
-  OwnedMiniaturesBloc({OwnedMiniaturesState? initialState})
+class OwnedMiniaturesBloc extends Bloc<OwnedMiniaturesEvent, OwnedMiniaturesState> {
+  OwnedMiniaturesBloc({OwnedMiniaturesState initialState = const OwnedMiniaturesState.loading()})
       : super(
-          initialState ?? const OwnedMiniaturesState.loading(),
+          initialState,
         ) {
     on<OwnedMiniaturesLoadListEvent>(onOwnedMiniaturesLoadingEvent);
   }
@@ -23,9 +22,7 @@ class OwnedMiniaturesBloc
     miniatureRepository: MiniatureRepositoryImpl(
       miniatureLocalDatasource: MiniatureLocalDatasourceImpl(),
       miniatureRemoteDatasource: MiniatureRemoteDatasourceImpl(),
-      networkInfo: NetworkInfoInternetConnectionChecker(
-        connectionChecker: InternetConnectionChecker(),
-      ),
+      networkInfo: getIt<NetworkInfo>(),
     ),
   );
 
@@ -46,15 +43,13 @@ class OwnedMiniaturesBloc
     //   type: "type",
     //   universe: "universe",
     // );
-   // await box.add(min);
+    // await box.add(min);
 
-    final result =
-        await _getMiniatureInfoList(GetMiniatureInfoListParamsModel());
+    final result = await _getMiniatureInfoList(GetMiniatureInfoListParamsModel());
     //TODO implement exception
     result.fold(
       (l) => null,
-      (miniatureInfoList) => emit(
-          OwnedMiniaturesState.loaded(miniatureInfoList: miniatureInfoList)),
+      (miniatureInfoList) => emit(OwnedMiniaturesState.loaded(miniatureInfoList: miniatureInfoList)),
     );
   }
 }
